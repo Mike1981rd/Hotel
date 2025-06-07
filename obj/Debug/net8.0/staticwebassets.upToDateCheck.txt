@@ -1,14 +1,18 @@
 wwwroot\css\admin-panel.css
 wwwroot\css\company-settings.css
+wwwroot\css\login.css
 wwwroot\css\materialize-admin.css
 wwwroot\css\materialize-exact.css
 wwwroot\css\materialize-exact-improved.css
+wwwroot\css\preview-blocks.css
 wwwroot\css\roles.css
 wwwroot\css\site.css
+wwwroot\css\website-builder.css
 wwwroot\favicon.ico
 wwwroot\js\admin-panel.js
 wwwroot\js\materialize-admin.js
 wwwroot\js\site.js
+wwwroot\js\website-builder.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
@@ -68,3 +72,6 @@ wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\uploads\logos\234c2c73-3b15-4708-a501-fc6eac175b28_25.png
 wwwroot\uploads\logos\39239043-4a03-42d1-8138-e5a6272e63c5_25.png
+wwwroot\uploads\profiles\3a486dd5-4339-4847-a3fd-956cb92ade81_profile picture.jpg
+wwwroot\uploads\profiles\ce284fdd-08b5-42ff-8423-b17ff3e3c2c0_profile picture.jpg
+wwwroot\uploads\profiles\de3e89a6-9442-4f8c-9c45-8f0c6f712471_images.jpeg

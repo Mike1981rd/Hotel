@@ -1,1 +1,210 @@
-[]
+[
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebPagesController",
+    "Method": "GetWebPages",
+    "RelativePath": "api/builder/websites/{websiteId}/pages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Hotel.Controllers.Api.WebPageListDto, Hotel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebPagesController",
+    "Method": "CreateWebPage",
+    "RelativePath": "api/builder/websites/{websiteId}/pages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Hotel.Controllers.Api.CreateWebPageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Hotel.Models.WebPage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebPagesController",
+    "Method": "UpdateWebPage",
+    "RelativePath": "api/builder/websites/{websiteId}/pages/{pageId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Hotel.Controllers.Api.UpdateWebPageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebPagesController",
+    "Method": "DeleteWebPage",
+    "RelativePath": "api/builder/websites/{websiteId}/pages/{pageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebPagesController",
+    "Method": "GetWebPage",
+    "RelativePath": "api/builder/websites/{websiteId}/pages/{pageIdOrSlug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageIdOrSlug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Hotel.Models.WebPage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebPagesController",
+    "Method": "GetDefaultPageStructure",
+    "RelativePath": "api/builder/websites/{websiteId}/pages/{pageIdOrSlug}/default-structure",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "websiteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageIdOrSlug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebSitesController",
+    "Method": "GetCurrentWebSite",
+    "RelativePath": "api/builder/websites/current",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebSitesController",
+    "Method": "GetDefaultGlobalSettings",
+    "RelativePath": "api/builder/websites/current/default-global-settings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebSitesController",
+    "Method": "UpdateGlobalSettings",
+    "RelativePath": "api/builder/websites/current/global-settings",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Hotel.Controllers.Api.UpdateGlobalSettingsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Hotel.Controllers.Api.WebSitesController",
+    "Method": "UpdateTemplate",
+    "RelativePath": "api/builder/websites/current/template",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Hotel.Controllers.Api.UpdateTemplateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

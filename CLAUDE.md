@@ -17,7 +17,7 @@
 ## Estructura del Proyecto
 - ASP.NET Core 8.0
 - Entity Framework Core con PostgreSQL
-- Modelos creados: Room, RoomType, Guest, Reservation, Payment, Company
+- Modelos creados: Room, RoomType, Guest, Reservation, Payment, Company, WebSite, WebPage
 - DbContext: HotelDbContext
 
 ## Patrones y Estándares Implementados
@@ -35,3 +35,51 @@
 8. **Botones**: Solo un set al final, Guardar usa var(--primary)
 9. **Requeridos**: `<span class="required-asterisk">*</span>`
 10. **Traducciones**: Agregar en _MaterializeExactLayout translations object
+
+## Website Builder - Implementación Completa
+
+### Arquitectura Base
+- **Modelos EF Core**: 
+  - `WebSite`: Configuración global (GlobalThemeSettingsJson en jsonb)
+  - `WebPage`: Páginas con PageStructureJson (jsonb) que almacena array de bloques
+- **API Controllers**:
+  - `WebSitesController`: GET/PUT para sitio actual
+  - `WebPagesController`: CRUD completo de páginas
+
+### Interfaz Editor (3 paneles estilo Shopify)
+1. **Panel Principal** (`.builder-sidebar-main`): Lista bloques, botones mover/eliminar
+2. **Panel Settings** (`.builder-sidebar-settings`): Campos dinámicos según bloque
+3. **Preview** (`#preview-content-placeholder`): Renderizado visual en tiempo real
+
+### Estructura JavaScript
+```javascript
+editorState = {
+    websiteId, currentPageId, currentPageBlocks: [], 
+    hasUnsavedChanges, selectedBlockId
+}
+blockSettingsSchemas = { "Hero": [...campos], "Text": [...] }
+blockRenderers = { "Hero": function(settings) => html }
+```
+
+### Funcionalidades
+- **Bloques**: Añadir (modal), editar settings, reordenar (up/down), eliminar (confirmación)
+- **Guardado**: PUT con PageStructureJson stringificado, indicador visual de cambios
+- **Preview**: renderPreview() actualiza con cada cambio usando blockRenderers
+
+### Flujo de Datos
+1. Carga: GET site → pages → parse JSON → render
+2. Edición: UI → actualizar array memoria → renderPreview()
+3. Guardar: stringify → PUT API
+
+### Archivos Clave
+- `/Controllers/Api/Web*Controller.cs`
+- `/Views/WebsiteBuilder/Index.cshtml`
+- `/wwwroot/js/website-builder.js` (toda la lógica)
+- `/wwwroot/css/website-builder.css` (editor)
+- `/wwwroot/css/preview-blocks.css` (preview)
+
+### Notas Importantes
+- Bloques = {id, type, settings}
+- No hay edición HTML directa, solo settings
+- Estado en memoria hasta guardar
+- CSS editor ≠ CSS sitio final

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/materialize-exact.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/company-settings.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/roles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <div class="layout-container">
@@ -52,7 +53,7 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="#" class="menu-link">
+                        <a href="/Clients" class="menu-link">
                             <i class="menu-icon fas fa-user-friends"></i>
                             <span class="menu-text" data-i18n="menu.clientes">Clientes</span>
                             <span class="menu-tooltip" data-i18n="menu.clientes">Clientes</span>
@@ -60,7 +61,7 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="#" class="menu-link">
+                        <a href="@Url.Action("Index", "WebsiteBuilder")" class="menu-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "WebsiteBuilder" ? "active" : "")">
                             <i class="menu-icon fas fa-globe"></i>
                             <span class="menu-text" data-i18n="menu.sitioWeb">Sitio Web</span>
                             <span class="menu-tooltip" data-i18n="menu.sitioWeb">Sitio Web</span>
@@ -739,7 +740,17 @@
                 'users.confirmPassword': 'Confirmar Contraseña',
                 'users.status': 'Estado',
                 'users.profileImage': 'Imagen de Perfil',
-                'users.uploadImage': 'Cargar Imagen'
+                'users.uploadImage': 'Cargar Imagen',
+                // Website Builder
+                'builder.save': 'Guardar',
+                'builder.page': 'Página',
+                'builder.addSection': 'Añadir Sección',
+                'builder.themeSettings': 'Configuración del Tema',
+                'builder.properties': 'Propiedades',
+                'builder.selectElement': 'Seleccione un elemento para editar sus propiedades.',
+                'builder.previewArea': 'Área de Previsualización',
+                'builder.previewDesc': 'La vista previa de su sitio web aparecerá aquí',
+                'builder.selectBlockType': 'Seleccionar tipo de bloque'
             },
             en: {
                 // Menu items
@@ -889,7 +900,17 @@
                 'users.confirmPassword': 'Confirm Password',
                 'users.status': 'Status',
                 'users.profileImage': 'Profile Image',
-                'users.uploadImage': 'Upload Image'
+                'users.uploadImage': 'Upload Image',
+                // Website Builder
+                'builder.save': 'Save',
+                'builder.page': 'Page',
+                'builder.addSection': 'Add Section',
+                'builder.themeSettings': 'Theme Settings',
+                'builder.properties': 'Properties',
+                'builder.selectElement': 'Select an element to edit its properties.',
+                'builder.previewArea': 'Preview Area',
+                'builder.previewDesc': 'Your website preview will appear here',
+                'builder.selectBlockType': 'Select block type'
             }
         };
         

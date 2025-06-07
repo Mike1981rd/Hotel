@@ -1,7 +1,6 @@
 @model IEnumerable<Hotel.Models.Role>
 @{
     ViewData["Title"] = "Lista de Roles";
-    Layout = "_MaterializeExactLayout";
     var userCounts = ViewBag.UserCounts as Dictionary<int, int>;
     var roleUsers = ViewBag.RoleUsers as Dictionary<int, List<Hotel.Models.User>>;
 }

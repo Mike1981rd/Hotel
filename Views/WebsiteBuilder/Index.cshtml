@@ -1,0 +1,170 @@
+@{
+    ViewData["Title"] = "Constructor de Sitios Web";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/website-builder.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/preview-blocks.css" asp-append-version="true" />
+}
+
+<div class="content-header">
+    <h2 class="content-title">Constructor de Sitios Web</h2>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="Index">Administración</a></li>
+            <li class="breadcrumb-item active">Constructor de Sitios Web</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="content-body">
+    <div class="website-builder-editor">
+        <!-- Barra Superior del Editor -->
+        <div class="builder-topbar">
+            <div class="topbar-left">
+                <div class="template-info">
+                    <span class="template-label">Plantilla:</span>
+                    <span id="current-template-name" class="template-name">Cargando...</span>
+                </div>
+            </div>
+            
+            <div class="topbar-center">
+                <div class="page-selector-wrapper">
+                    <select id="page-selector" class="form-select">
+                        <option value="home">Página de inicio</option>
+                        <option value="about">Acerca de</option>
+                        <option value="rooms">Habitaciones</option>
+                        <option value="contact">Contacto</option>
+                    </select>
+                    <button id="create-new-page-btn" class="btn-create-page" title="Crear Nueva Página">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="topbar-right">
+                <div class="device-view-selector">
+                    <button class="device-btn active" data-view="desktop" id="device-view-desktop" title="Vista Escritorio">
+                        <i class="fas fa-desktop"></i>
+                    </button>
+                    <button class="device-btn" data-view="mobile" id="device-view-mobile" title="Vista Móvil">
+                        <i class="fas fa-mobile-alt"></i>
+                    </button>
+                </div>
+                <button id="delete-current-page-btn" class="btn-delete-page" title="Eliminar Página Actual" disabled>
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button id="save-builder-changes-btn" class="btn-primary">
+                    <i class="fas fa-save"></i>
+                    <span data-i18n="builder.save">Guardar</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Contenedor Principal -->
+        <div class="builder-panels-container">
+            <!-- Panel Lateral Unificado -->
+            <div class="builder-sidebar" id="builder-sidebar">
+                <div class="sidebar-state-container" id="sidebar-state-container">
+                    <!-- El contenido dinámico del panel se insertará aquí mediante JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Área de Previsualización -->
+            <div class="builder-preview-area" id="builder-preview-area">
+                <div id="preview-content-placeholder" class="preview-container">
+                    <div class="preview-placeholder">
+                        <i class="fas fa-eye"></i>
+                        <h4 data-i18n="builder.previewArea">Área de Previsualización</h4>
+                        <p data-i18n="builder.previewDesc">La vista previa de su sitio web aparecerá aquí</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Añadir Sección -->
+<div class="modal-overlay" id="add-section-modal-overlay"></div>
+<div class="add-section-modal" id="add-section-modal">
+    <div class="modal-header">
+        <h5 class="modal-title" data-i18n="builder.selectBlockType">Seleccionar tipo de bloque</h5>
+        <button class="modal-close" id="close-add-section-modal">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="blocks-library" id="blocks-library">
+            <!-- Los tipos de bloques se generarán dinámicamente aquí -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Crear Nueva Página -->
+<div class="modal-overlay" id="create-page-modal-overlay"></div>
+<div class="create-page-modal" id="create-page-modal">
+    <div class="modal-header">
+        <h5 class="modal-title">Crear Nueva Página</h5>
+        <button class="modal-close" id="close-create-page-modal">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form id="create-page-form" class="create-page-form">
+            <div class="form-group">
+                <label for="page-title-input">Título de la Página</label>
+                <input type="text" id="page-title-input" class="form-control" placeholder="Ej: Acerca de Nosotros" required>
+                <small class="form-help">El título se mostrará en el menú y encabezados</small>
+            </div>
+            <div class="form-group">
+                <label for="page-slug-input">Slug de la Página</label>
+                <input type="text" id="page-slug-input" class="form-control" placeholder="ej: acerca-de-nosotros" required>
+                <small class="form-help">URL amigable (solo letras minúsculas, números y guiones)</small>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="cancel-create-page-btn">Cancelar</button>
+                <button type="submit" class="btn-primary" id="confirm-create-page-btn">
+                    <i class="fas fa-plus"></i>
+                    Crear Página
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal para Cambiar Plantilla -->
+<div class="modal-overlay" id="change-template-modal-overlay"></div>
+<div class="change-template-modal" id="change-template-modal">
+    <div class="modal-header">
+        <h5 class="modal-title">Seleccionar Plantilla</h5>
+        <button class="modal-close" id="close-change-template-modal">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="template-selection-grid" id="template-selection-grid">
+            <!-- Las plantillas se generarán dinámicamente aquí -->
+        </div>
+        <div class="modal-actions">
+            <button type="button" class="btn-secondary" id="cancel-change-template-btn">Cancelar</button>
+            <button type="button" class="btn-primary" id="apply-template-btn" disabled>
+                <i class="fas fa-palette"></i>
+                Aplicar Plantilla Seleccionada
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Aislamos completamente el código del website builder
+        (function() {
+            var script = document.createElement('script');
+            script.src = '@Url.Content("~/js/website-builder.js")' + '?v=' + new Date().getTime();
+            script.onload = function() {
+                console.log('Website Builder script loaded for this page only');
+            };
+            document.body.appendChild(script);
+        })();
+    </script>
+}

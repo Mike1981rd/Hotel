@@ -5,7 +5,9 @@
       "Bash(dotnet ef migrations:*)",
       "Bash(find:*)",
       "Bash(grep:*)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(dotnet add package:*)",
+      "Bash(dotnet build)"
     ],
     "deny": []
   }

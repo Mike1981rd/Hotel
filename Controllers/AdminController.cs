@@ -19,7 +19,15 @@ namespace Hotel.Controllers
         }
         public IActionResult Index()
         {
+            // Temporalmente sin usar base de datos para probar
             return View();
+        }
+
+        // Acción de prueba simple
+        public IActionResult Test()
+        {
+            ViewData["Message"] = "Esta es una página de prueba";
+            return Content("Página de prueba funciona correctamente");
         }
 
         public IActionResult Dashboard()
@@ -55,12 +63,27 @@ namespace Hotel.Controllers
         // GET: Admin/Company
         public async Task<IActionResult> Company()
         {
-            var company = await _context.Companies.FirstOrDefaultAsync();
-            if (company == null)
+            try
             {
-                company = new Company();
+                // Log para diagnóstico
+                Console.WriteLine($"[AdminController.Company] Método llamado a las {DateTime.Now}");
+                
+                var company = await _context.Companies.FirstOrDefaultAsync();
+                if (company == null)
+                {
+                    Console.WriteLine("[AdminController.Company] No se encontró empresa, creando nueva instancia");
+                    company = new Company();
+                }
+                
+                Console.WriteLine("[AdminController.Company] Retornando vista");
+                return View(company);
             }
-            return View(company);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[AdminController.Company] ERROR: {ex.Message}");
+                Console.WriteLine($"[AdminController.Company] StackTrace: {ex.StackTrace}");
+                throw;
+            }
         }
 
         // POST: Admin/Company

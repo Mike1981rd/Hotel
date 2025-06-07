@@ -21,6 +21,8 @@ namespace Hotel.Data
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<WebSite> WebSites { get; set; }
+        public DbSet<WebPage> WebPages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -91,6 +93,26 @@ namespace Hotel.Data
                 .WithMany()
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            // Configuración de WebSite
+            modelBuilder.Entity<WebSite>()
+                .Property(w => w.GlobalThemeSettingsJson)
+                .HasColumnType("jsonb");
+
+            // Configuración de WebPage
+            modelBuilder.Entity<WebPage>()
+                .Property(p => p.PageStructureJson)
+                .HasColumnType("jsonb");
+
+            modelBuilder.Entity<WebPage>()
+                .HasIndex(p => new { p.WebSiteId, p.Slug })
+                .IsUnique();
+
+            modelBuilder.Entity<WebPage>()
+                .HasOne(p => p.WebSite)
+                .WithMany(w => w.WebPages)
+                .HasForeignKey(p => p.WebSiteId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Datos semilla para RoomTypes
             modelBuilder.Entity<RoomType>().HasData(

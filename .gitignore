@@ -284,3 +284,9 @@ Desktop.ini
 
 # JetBrains Rider
 *.sln.iml 
+
+# Claude AI settings
+.claude/
+
+# Upload directories (user-generated content)
+wwwroot/uploads/

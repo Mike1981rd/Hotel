@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\company-settings.css"
     },
     {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\css\\materialize-admin.css",
       "PackagePath": "staticwebassets\\css\\materialize-admin.css"
     },
@@ -25,12 +29,20 @@
       "PackagePath": "staticwebassets\\css\\materialize-exact.css"
     },
     {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\css\\preview-blocks.css",
+      "PackagePath": "staticwebassets\\css\\preview-blocks.css"
+    },
+    {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\css\\roles.css",
       "PackagePath": "staticwebassets\\css\\roles.css"
     },
     {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\css\\website-builder.css",
+      "PackagePath": "staticwebassets\\css\\website-builder.css"
     },
     {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\favicon.ico",
@@ -47,6 +59,10 @@
     {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\js\\website-builder.js",
+      "PackagePath": "staticwebassets\\js\\website-builder.js"
     },
     {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -283,6 +299,18 @@
     {
       "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\uploads\\logos\\39239043-4a03-42d1-8138-e5a6272e63c5_25.png",
       "PackagePath": "staticwebassets\\uploads\\logos\\39239043-4a03-42d1-8138-e5a6272e63c5_25.png"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\uploads\\profiles\\3a486dd5-4339-4847-a3fd-956cb92ade81_profile picture.jpg",
+      "PackagePath": "staticwebassets\\uploads\\profiles\\3a486dd5-4339-4847-a3fd-956cb92ade81_profile picture.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\uploads\\profiles\\ce284fdd-08b5-42ff-8423-b17ff3e3c2c0_profile picture.jpg",
+      "PackagePath": "staticwebassets\\uploads\\profiles\\ce284fdd-08b5-42ff-8423-b17ff3e3c2c0_profile picture.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\Visual Studio 2022\\Projects\\Hotel\\Hotel\\wwwroot\\uploads\\profiles\\de3e89a6-9442-4f8c-9c45-8f0c6f712471_images.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\profiles\\de3e89a6-9442-4f8c-9c45-8f0c6f712471_images.jpeg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Hotel.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
